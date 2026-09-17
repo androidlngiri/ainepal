@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ne">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>सजिलो एआई खबर</title>
+    <style>
+      :root {
+        --bg: #f2efe8;
+        --panel: #fffdf8;
+        --ink: #1d2433;
+        --muted: #5a6474;
+        --line: #d9d0ba;
+        --accent: #1f3d7a;
+        --tag-product: #23345c;
+        --tag-biz: #2f6d5d;
+        --tag-legal: #7a4a3a;
+        --tag-chip: #6a4b8b;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+      }
+      .wrap { max-width: 980px; margin: 0 auto; padding: 20px; }
+      .header {
+        border-bottom: 3px solid var(--ink);
+        padding-bottom: 18px;
+        margin-bottom: 18px;
+      }
+      h1 {
+        font-size: clamp(2.5rem, 7vw, 4rem);
+        text-align: center;
+        margin: 10px 0 8px;
+      }
+      .sub {
+        text-align: center;
+        color: var(--muted);
+        font-style: italic;
+      }
+      .block {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 20px;
+        margin-bottom: 16px;
+      }
+      .article {
+        display: grid;
+        grid-template-columns: 64px 1fr;
+        gap: 12px;
+        border-bottom: 1px solid var(--line);
+        padding: 18px 0;
+      }
+      .num {
+        font-size: 1.8rem;
+        color: #b0a78d;
+        padding-top: 4px;
+      }
+      .tag {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 999px;
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      .tag.product { background: var(--tag-product); }
+      .tag.biz { background: var(--tag-biz); }
+      .tag.legal { background: var(--tag-legal); }
+      .tag.chip-tag { background: var(--tag-chip); }
+      .article h2 {
+        margin: 0 0 8px;
+        font-size: clamp(1.4rem, 3vw, 2rem);
+      }
+      .article p { margin: 0 0 10px; line-height: 1.7; }
+      .meta {
+        color: var(--muted);
+        font-size: 0.86rem;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      a.read-more {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .empty { padding: 30px; text-align: center; color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="header">
+        <div class="sub">सजिलो भाषामा, प्रविधिको खबर</div>
+        <h1>सजिलो एआई खबर</h1>
+        <div class="sub">ताजा प्रविधि र एआई खबर — सजिलो नेपालीमा</div>
+      </header>
+
+      {% if articles %}
+        {% set feature = articles[0] %}
+        <section class="block">
+          <span class="tag {{ feature.category }}">{{ category_labels.get(feature.category, feature.category) }}</span>
+          <h2>{{ feature.headline_ne }}</h2>
+          <p>{{ feature.summary_ne }}</p>
+          <div class="meta">
+            <span>स्रोत: {{ feature.source }}</span>
+            <a class="read-more" href="{{ feature.link }}" target="_blank" rel="noopener">थप पढ्नुहोस् →</a>
+          </div>
+        </section>
+
+        <section>
+          {% for article in articles[1:] %}
+            <article class="article">
+              <div class="num">{{ loop.index + 1 if loop.index else 1 }}</div>
+              <div>
+                <span class="tag {{ article.category }}">{{ category_labels.get(article.category, article.category) }}</span>
+                <h2>{{ article.headline_ne }}</h2>
+                <p>{{ article.summary_ne }}</p>
+                <div class="meta">
+                  <span>स्रोत: {{ article.source }}</span>
+                  <a class="read-more" href="{{ article.link }}" target="_blank" rel="noopener">थप पढ्नुहोस् →</a>
+                </div>
+              </div>
+            </article>
+          {% endfor %}
+        </section>
+      {% else %}
+        <div class="empty">अहिलेसम्म कुनै खबर छैन।</div>
+      {% endif %}
+    </div>
+  </body>
+</html>
