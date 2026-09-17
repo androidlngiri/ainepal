@@ -1,1 +1,47 @@
-[]
+[
+  {
+    "id": "seed-openai-agent",
+    "source": "OpenAI Blog",
+    "link": "https://openai.com/index/introducing-operator/",
+    "title_en": "OpenAI introduces a new AI agent for everyday work",
+    "excerpt_en": "OpenAI has unveiled an AI agent that can browse the web, use tools, and work through routine tasks with user supervision.",
+    "published_at": "2026-09-01T06:00:00+00:00",
+    "headline_ne": "ओपनएआईले रोजगारी कामका लागि नयाँ एआई सहयोगी सार्वजनिक गर्यो",
+    "summary_ne": "ओपनएआईले एक नयाँ एआई सहयोगी unveiling गरेको छ जसले वेब ब्राउज गर्न र दैनिक कामलाई सहयोग गर्न सक्छ। यसले उपयोगकर्ताको निर्देशनमा सामान्य कार्य पूरा गर्न सहयोग पुर्याउँछ।",
+    "category": "product",
+    "confidence": "high",
+    "needs_review": false,
+    "review_reason": "",
+    "processed_at": "2026-09-17T00:00:00+00:00"
+  },
+  {
+    "id": "seed-nvidia-chip",
+    "source": "NVIDIA Newsroom",
+    "link": "https://nvidianews.nvidia.com/",
+    "title_en": "AI chip makers expand data center capacity to meet rising demand",
+    "excerpt_en": "Chipmakers are investing heavily in bigger data center infrastructure as demand for AI training and inference workloads keeps climbing.",
+    "published_at": "2026-09-02T08:00:00+00:00",
+    "headline_ne": "एआई चिप निर्माताले डाटा सेन्टर विस्तारमा ठूलो लगानी गरिरहेका छन्",
+    "summary_ne": "एआई तालिम र सेवा संचालनको माग बढ्दै जाँदा चिप निर्माताहरूले डाटा सेन्टरको क्षमता विस्तार गर्न ठूलो लगानी गरिरहेका छन्।",
+    "category": "chip-tag",
+    "confidence": "high",
+    "needs_review": false,
+    "review_reason": "",
+    "processed_at": "2026-09-17T00:00:00+00:00"
+  },
+  {
+    "id": "seed-eu-ai-law",
+    "source": "EU AI Policy Tracker",
+    "link": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+    "title_en": "European regulators continue work on safe AI governance rules",
+    "excerpt_en": "European officials are reviewing new rules for auditing, transparency, and risk management in AI systems used by public and private sectors.",
+    "published_at": "2026-09-03T11:30:00+00:00",
+    "headline_ne": "युरोपेली नियामकहरू सुरक्षित एआई नियमको पक्का तयारीमा छन्",
+    "summary_ne": "युरोपेली अधिकारीहरूले सार्वजनिक र निजी क्षेत्रमा प्रयोग हुने एआई प्रणालीहरूका लागि auditing, transparency र जोखिम व्यवस्थापनसम्बन्धी नियमहरू समीक्षा गरिरहेका छन्।",
+    "category": "legal",
+    "confidence": "high",
+    "needs_review": false,
+    "review_reason": "",
+    "processed_at": "2026-09-17T00:00:00+00:00"
+  }
+]
