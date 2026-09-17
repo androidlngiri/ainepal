@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>सजिलो एआई खबर</title>
+<meta name="description" content="एआई र प्रविधिका खबर, सजिलो नेपालीमा।">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EFECE2; --paper-raised: #F8F6EF; --ink: #1C2333; --ink-soft: #4B5266;
+    --rule: #C9C2AD; --indigo: #23345C; --indigo-deep: #16213D; --marigold: #D98E2A;
+    --tag-legal: #7A4A3A; --tag-biz: #2E6B5E; --tag-product: #23345C; --tag-chip: #6B4C8A;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181F; --paper-raised: #1B212B; --ink: #EDE9DD; --ink-soft: #A8AEBB;
+      --rule: #333B49; --indigo: #7C93C9; --indigo-deep: #9AB0DE;
+      --tag-legal: #C98B72; --tag-biz: #6FBBA6; --tag-product: #8FA6DD; --tag-chip: #B79AD9;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper: #14181F; --paper-raised: #1B212B; --ink: #EDE9DD; --ink-soft: #A8AEBB;
+    --rule: #333B49; --indigo: #7C93C9; --indigo-deep: #9AB0DE;
+    --tag-legal: #C98B72; --tag-biz: #6FBBA6; --tag-product: #8FA6DD; --tag-chip: #B79AD9;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink);
+    font-family: "Noto Sans Devanagari", "Inter", sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .masthead { border-bottom: 3px solid var(--ink); padding: 28px 20px 16px; max-width: 880px; margin: 0 auto; }
+  .masthead-top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 20px; margin-bottom: 14px; }
+  .kicker { font-family: "Inter", sans-serif; font-size: 12.5px; letter-spacing: 0.03em; color: var(--ink-soft); }
+  .masthead h1 { font-family: "Tiro Devanagari Sanskrit", serif; font-weight: 400; font-size: clamp(38px, 7vw, 58px); line-height: 1; margin: 0 0 6px 0; text-align: center; }
+  .masthead-sub { text-align: center; font-size: 15px; color: var(--ink-soft); font-family: "Source Serif 4", serif; font-style: italic; }
+  .filter-row { max-width: 880px; margin: 18px auto 0; padding: 0 20px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip { font-family: "Inter", sans-serif; font-size: 13px; padding: 6px 14px; border: 1px solid var(--rule); border-radius: 999px; background: transparent; color: var(--ink-soft); cursor: pointer; }
+  .chip.active { background: var(--indigo); border-color: var(--indigo); color: var(--paper-raised); }
+  main { max-width: 880px; margin: 0 auto; padding: 24px 20px 60px; }
+  .feature { border-bottom: 1px solid var(--rule); padding-bottom: 28px; margin-bottom: 28px; }
+  .feature h2 { font-family: "Tiro Devanagari Sanskrit", serif; font-weight: 400; font-size: clamp(26px, 4.5vw, 36px); line-height: 1.25; margin: 10px 0 12px 0; }
+  .feature p { font-size: 17px; line-height: 1.85; max-width: 68ch; margin: 0 0 10px 0; }
+  .meta-line { font-family: "Inter", sans-serif; font-size: 12.5px; color: var(--ink-soft); margin-top: 12px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .read-more { font-family: "Inter", sans-serif; font-size: 13.5px; text-decoration: none; border-bottom: 1px solid currentColor; color: var(--indigo); padding-bottom: 1px; }
+  .grid { display: grid; grid-template-columns: 1fr; gap: 0; }
+  .story { display: grid; grid-template-columns: 64px 1fr; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--rule); }
+  .story:last-child { border-bottom: none; }
+  .story-num { font-family: "Source Serif 4", serif; font-size: 26px; color: var(--rule); line-height: 1; padding-top: 2px; }
+  .story h3 { font-family: "Tiro Devanagari Sanskrit", serif; font-weight: 400; font-size: 22px; line-height: 1.35; margin: 0 0 8px 0; }
+  .story p { font-size: 15.5px; line-height: 1.8; margin: 0 0 8px 0; max-width: 62ch; }
+  .tag { display: inline-block; font-family: "Inter", sans-serif; font-size: 11.5px; font-weight: 600; padding: 3px 10px; border-radius: 4px; color: #fff; }
+  .tag.legal { background: var(--tag-legal); } .tag.biz { background: var(--tag-biz); }
+  .tag.product { background: var(--tag-product); } .tag.chip-tag { background: var(--tag-chip); }
+  footer { max-width: 880px; margin: 0 auto; padding: 20px 20px 50px; border-top: 1px solid var(--rule); font-family: "Inter", sans-serif; font-size: 12.5px; color: var(--ink-soft); line-height: 1.7; }
+  .theme-toggle { font-family: "Inter", sans-serif; font-size: 12px; background: transparent; border: 1px solid var(--rule); border-radius: 999px; padding: 4px 10px; color: var(--ink-soft); cursor: pointer; }
+  .empty-state { text-align: center; padding: 60px 20px; color: var(--ink-soft); font-family: "Source Serif 4", serif; font-style: italic; }
+  @media (max-width: 480px) { .story { grid-template-columns: 32px 1fr; gap: 10px; } .story-num { font-size: 18px; } }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-top">
+    <span class="kicker">सजिलो भाषामा, प्रविधिको खबर</span>
+    <button class="theme-toggle" id="themeToggle" type="button">🌓 थिम बदल्नुहोस्</button>
+  </div>
+  <h1>सजिलो एआई खबर</h1>
+  <div class="masthead-sub">आर्टिफिसियल इन्टेलिजेन्सको संसारका खबर — सजिलो र छोटो नेपालीमा</div>
+</div>
+
+<div class="filter-row" id="filterRow">
+  <button class="chip active" data-cat="all">सबै</button>
+  <button class="chip" data-cat="product">प्रोडक्ट</button>
+  <button class="chip" data-cat="biz">व्यापार</button>
+  <button class="chip" data-cat="legal">कानुनी</button>
+  <button class="chip" data-cat="chip-tag">चिप र पूर्वाधार</button>
+</div>
+
+<main>
+  
+  <div class="feature" data-cat="legal">
+    <span class="tag legal">कानुनी</span>
+    <h2>युरोपेली नियामकहरू सुरक्षित एआई नियमको पक्का तयारीमा छन्</h2>
+    <p>युरोपेली अधिकारीहरूले सार्वजनिक र निजी क्षेत्रमा प्रयोग हुने एआई प्रणालीहरूका लागि auditing, transparency र जोखिम व्यवस्थापनसम्बन्धी नियमहरू समीक्षा गरिरहेका छन्।</p>
+    <div class="meta-line">
+      <span>स्रोत: EU AI Policy Tracker</span>
+      <a class="read-more" href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank" rel="noopener">थप पढ्नुहोस् →</a>
+    </div>
+  </div>
+
+  <div class="grid" id="storyGrid">
+    
+    <div class="story" data-cat="chip-tag">
+      <div class="story-num">01</div>
+      <div>
+        <span class="tag chip-tag">चिप र पूर्वाधार</span>
+        <h3>एआई चिप निर्माताले डाटा सेन्टर विस्तारमा ठूलो लगानी गरिरहेका छन्</h3>
+        <p>एआई तालिम र सेवा संचालनको माग बढ्दै जाँदा चिप निर्माताहरूले डाटा सेन्टरको क्षमता विस्तार गर्न ठूलो लगानी गरिरहेका छन्।</p>
+        <div class="meta-line">
+          <span>स्रोत: NVIDIA Newsroom</span>
+          <a class="read-more" href="https://nvidianews.nvidia.com/" target="_blank" rel="noopener">थप पढ्नुहोस् →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story" data-cat="product">
+      <div class="story-num">02</div>
+      <div>
+        <span class="tag product">प्रोडक्ट</span>
+        <h3>ओपनएआईले रोजगारी कामका लागि नयाँ एआई सहयोगी सार्वजनिक गर्यो</h3>
+        <p>ओपनएआईले एक नयाँ एआई सहयोगी unveiling गरेको छ जसले वेब ब्राउज गर्न र दैनिक कामलाई सहयोग गर्न सक्छ। यसले उपयोगकर्ताको निर्देशनमा सामान्य कार्य पूरा गर्न सहयोग पुर्याउँछ।</p>
+        <div class="meta-line">
+          <span>स्रोत: OpenAI Blog</span>
+          <a class="read-more" href="https://openai.com/index/introducing-operator/" target="_blank" rel="noopener">थप पढ्नुहोस् →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>यो पृष्ठ स्वचालित रूपमा RSS स्रोतबाट तानिएका खबरहरूलाई एआईले सजिलो नेपालीमा सारांश बनाएर तयार पारेको हो। हरेक खबर प्रकाशित हुनुअघि स्वचालित तथ्य-जाँच (verification) बाट गुज्रिन्छ; शंका लागेका खबर यहाँ नदेखाइकन समीक्षाका लागि छुट्टै राखिन्छ। पूरा विवरणका लागि मूल स्रोत लिंक हेर्नुहोस्।</p>
+  <p>अन्तिम अपडेट: 2026-09-17 05:48 UTC</p>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  try {
+    const saved = localStorage.getItem('sajilo-theme');
+    if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  } catch (e) {}
+  btn.addEventListener('click', () => {
+    let current = root.getAttribute('data-theme');
+    let next = current === 'dark' ? 'light' : (current === 'light' ? null : 'dark');
+    if (next) root.setAttribute('data-theme', next); else root.removeAttribute('data-theme');
+    try {
+      if (next) localStorage.setItem('sajilo-theme', next);
+      else localStorage.removeItem('sajilo-theme');
+    } catch (e) {}
+  });
+  const chips = document.querySelectorAll('.chip[data-cat]');
+  const stories = document.querySelectorAll('.story');
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const cat = chip.dataset.cat;
+      stories.forEach(s => {
+        s.style.display = (cat === 'all' || s.dataset.cat === cat) ? 'grid' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>
